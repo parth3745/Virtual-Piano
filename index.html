@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Virtual Piano</title>
+    <link rel="stylesheet" type="text/css" href="style/home-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="style/bootstraptoggle.min.css" rel="stylesheet">
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+</head>
+
+<body>
+
+
+
+    <script src="scripts/jquery-v3.4.1-min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="scripts/bootstrap-toggle.js"></script>
+
+    <!-- Nav bar -->
+    <div class="nav_custom">
+        <span align="center"><a class="nav-heading" href=""><b>  P I A N O</b></a></span>
+        <span id="login"><a href="#">Log In</a></span>
+        <span id="signup"><a href="#">Sign Up</a></span>
+    </div>
+    <!-- Controls -->
+    <div class="controlDiv">
+        <div class="option" style="width: 16%; height: 7%; background-color: transparent; z-index: 1; position: absolute; float: left; margin-left: 2%;"><span id="mode_text">Dark Mode</span>
+            <input id="toggle-trigger" type="checkbox" checked data-toggle="toggle" data-height="16" data-width="75">
+        </div>
+
+        <div class="option" style="width: 16%; height: 7%; background-color: transparent; z-index: 1; position: absolute; float: left; margin-left: 17%;">
+            <div class="btn-group">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-dark btn-sm dropdown-toggle dropselect" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Kick Type
+                    </button>
+                    <div class="dropdown-menu drop">
+                        <a id="big2" class="dropdown-item" href="#">Big 2</a>
+                        <a id="big808" class="dropdown-item" href="#">Big 808</a>
+                        <a id="longdist808" class="dropdown-item" href="#">Long Dist 808</a>
+                        <a id="ramenpedal" class="dropdown-item" href="#">Ramen Pedal</a>
+                        <a id="8bit" class="dropdown-item" href="#">8 Bit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="option" style="width: 16%; height: 7%; background-color: transparent; z-index: 1; position: absolute; float: left; margin-left: 30%;">
+            <div class="btn-group">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-dark btn-sm dropdown-toggle dropselect" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Snare Type
+                    </button>
+                    <div class="dropdown-menu drop">
+                        <a id="snare1" class="dropdown-item" href="#">808 Snare 1</a>
+                        <a id="snare2" class="dropdown-item" href="#">808 Snare 2</a>
+                        <a id="snare3" class="dropdown-item" href="#">808 Snare 3</a>
+                        <a id="snare4" class="dropdown-item" href="#">808 Snare 4</a>
+                        <a id="snare5" class="dropdown-item" href="#">808 Snare 5</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="option" style="width: 16%; height: 7%; background-color: transparent; z-index: 1; position: absolute; float: left; margin-left: 34%;">
+            <button id="recordStop" type="button" class="btn btn-dark btn-sm">Stop Recording</button>
+        </div> -->
+        <div class="option" style="width: 16%; height: 7%; background-color: transparent; z-index: 1; position: absolute; float: left; margin-left: 43%;">
+            <div class="btn-group">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-dark btn-sm dropdown-toggle dropselect" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Hi-Hat Type
+                    </button>
+                    <div class="dropdown-menu drop">
+                        <a id="hihat1" class="dropdown-item" href="#">Hi Hat 1</a>
+                        <a id="hihat2" class="dropdown-item" href="#">Hi Hat 2</a>
+                        <a id="hihat3" class="dropdown-item" href="#">Hi Hat 3</a>
+                        <a id="hihat4" class="dropdown-item" href="#">Hi Hat 4</a>
+                        <a id="hihat5" class="dropdown-item" href="#">Hi Hat 5</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="option" style="width: 16%; height: 7%; background-color: transparent; z-index: 1; position: absolute; float: left; margin-left: 57%;">
+            <div class="btn-group">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-dark btn-sm dropdown-toggle dropselect" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Precussion Type
+                    </button>
+                    <div class="dropdown-menu drop">
+                        <a id="precussion1" class="dropdown-item" href="#">Precussion 1</a>
+                        <a id="precussion2" class="dropdown-item" href="#">Precussion 2</a>
+                        <a id="precussion3" class="dropdown-item" href="#">Precussion 3</a>
+                        <a id="precussion4" class="dropdown-item" href="#">Precussion 4</a>
+                        <a id="precussion5" class="dropdown-item" href="#">Precussion 5</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="option" style="width: 16%; height: 7%; background-color: transparent; z-index: 1; position: absolute; float: left; margin-left: 71%;">
+            <button id="labels" type="button" class="btn btn-dark btn-sm">Hide Labels</button>
+        </div>
+    </div>
+
+
+    <!-- additional sounds -->
+    <div class="additionalSounds">
+        <div class="option" style="z-index: 0; width: 16%; height: 7%; background-color: transparent; z-index: 1; position: absolute; float: left; margin-left: 6%;">
+            <button id="kickButton" type="button" class="btn btn-dark btn-sm sound">Kick <span class="iconify" data-icon="zmdi-space-bar" data-inline="false"></span></button>
+        </div>
+        <div class="option" style="z-index: 0; width: 16%; height: 7%; background-color: transparent; z-index: 1; position: absolute; float: left; margin-left: 24%;">
+            <button id="snareButton" type="button" class="btn btn-dark btn-sm sound">Snare <span class="iconify" data-icon="bi:shift" data-inline="false"></span></button>
+        </div>
+        <div class="option" style="z-index: 0; width: 16%; height: 7%; background-color: transparent; z-index: 1; position: absolute; float: left; margin-left: 43%;">
+            <button id="hihatButton" type="button" class="btn btn-dark btn-sm sound">Hi-Hat (alt)</button>
+        </div>
+        <div class="option" style="z-index: 0; width: 16%; height: 7%; background-color: transparent; z-index: 1; position: absolute; float: left; margin-left: 63%;">
+            <button id="precussionButton" type="button" class="btn btn-dark btn-sm sound">Precussion (Ctrl)</button>
+        </div>
+    </div>
+
+    <!-- piano -->
+    <div class="piano">
+        <table height="100%" width="100%">
+            <tr style="height: 100%;width: 100%;">
+                <div style="height=100%; width: 100%; z-index: 0; position: relative;">
+                    <td id="1" class="white-key">
+                        <div class="white-key-div"></div>
+                    </td>
+                    <td id="2" class="white-key">
+                        <div class="white-key-div"></div>
+                    </td>
+                    <td id="3" class="white-key">
+                        <div class="white-key-div"></div>
+                    </td>
+                    <td id="4" class="white-key">
+                        <div class="white-key-div"></div>
+                    </td>
+                    <td id="5" class="white-key">
+                        <div class="white-key-div"></div>
+                    </td>
+                    <td id="6" class="white-key">
+                        <div class="white-key-div"></div>
+                    </td>
+                    <td id="7" class="white-key">
+                        <div class="white-key-div"></div>
+                    </td>
+                    <td id="8" class="white-key">
+                        <div class="white-key-div"></div>
+                    </td>
+                    <td id="9" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">Q</p>
+                        </div>
+                    </td>
+                    <td id="10" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">W</p>
+                        </div>
+                    </td>
+                    <td id="11" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">E</p>
+                        </div>
+                    </td>
+                    <td id="12" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">R</p>
+                        </div>
+                    </td>
+                    <td id="13" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">T</p>
+                        </div>
+                    </td>
+                    <td id="14" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">Y</p>
+                        </div>
+                    </td>
+                    <td id="15" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">U</p>
+                        </div>
+                    </td>
+                    <td id="16" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">I</p>
+                        </div>
+                    </td>
+                    <td id="17" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">O</p>
+                        </div>
+                    </td>
+                    <td id="18" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">P</p>
+                        </div>
+                    </td>
+                    <td id="19" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">Z</p>
+                        </div>
+                    </td>
+                    <td id="20" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">X</p>
+                        </div>
+                    </td>
+                    <td id="21" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">C</p>
+                        </div>
+                    </td>
+                    <td id="22" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">V</p>
+                        </div>
+                    </td>
+                    <td id="23" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">B</p>
+                        </div>
+                    </td>
+                    <td id="24" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">N</p>
+                        </div>
+                    </td>
+                    <td id="25" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">M</p>
+                        </div>
+                    </td>
+                    <td id="26" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">,</p>
+                        </div>
+                    </td>
+                    <td id="27" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">.</p>
+                        </div>
+                    </td>
+                    <td id="28" class="white-key">
+                        <div class="white-key-div">
+                            <p class="label">/</p>
+                        </div>
+                    </td>
+                    <td id="29" class="white-key">
+                        <div class="white-key-div"></div>
+                    </td>
+                    <td id="30" class="white-key">
+                        <div class="white-key-div"></div>
+                    </td>
+                    <td id="31" class="white-key">
+                        <div class="white-key-div"></div>
+                    </td>
+                    <td id="32" class="white-key">
+                        <div class="white-key-div"></div>
+                    </td>
+                    <td id="33" class="white-key">
+                        <div class="white-key-div"></div>
+                    </td>
+                    <td id="34" class="white-key">
+                        <div class="white-key-div"></div>
+                    </td>
+                    <td id="35" class="white-key">
+                        <div class="white-key-div"></div>
+                    </td>
+                    <td id="36" class="white-key">
+                        <div class="white-key-div"></div>
+                    </td>
+                </div>
+                <div id="37" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 4.8%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; "></div>
+                <div id="38" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 7.8%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; "></div>
+                <div id="39" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 13.1%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; "></div>
+                <div id="40" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 15.9%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; "></div>
+                <div id="41" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 18.7%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; "></div>
+                <div id="42" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 24.1%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; ">
+                    <p class="bLabel">2</p>
+                </div>
+                <div id="43" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 27%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; ">
+                    <p class="bLabel">3</p>
+                </div>
+                <div id="44" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 32.3%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; ">
+                    <p class="bLabel">5</p>
+                </div>
+                <div id="45" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 35.1%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; ">
+                    <p class="bLabel">6</p>
+                </div>
+                <div id="46" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 37.9%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; ">
+                    <p class="bLabel">7</p>
+                </div>
+                <div id="47" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 43.4%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; ">
+                    <p class="bLabel">9</p>
+                </div>
+                <div id="48" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 46.2%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; ">
+                    <p class="bLabel">0</p>
+                </div>
+                <div id="49" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 51.7%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; ">
+                    <p class="bLabel">S</p>
+                </div>
+                <div id="50" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 54.5%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; ">
+                    <p class="bLabel">D</p>
+                </div>
+                <div id="51" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 57.4%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; ">
+                    <p class="bLabel">F</p>
+                </div>
+                <div id="52" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 62.8%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; ">
+                    <p class="bLabel">H</p>
+                </div>
+                <div id="53" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 65.8%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; ">
+                    <p class="bLabel">J</p>
+                </div>
+                <div id="54" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 71.3%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; ">
+                    <p class="bLabel">L</p>
+                </div>
+                <div id="55" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 74.2%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; ">
+                    <p class="bLabel">;</p>
+                </div>
+                <div id="56" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 77.1%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; ">
+                    <p class="bLabel">'</p>
+                </div>
+                <div id="57" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 82.6%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; "></div>
+                <div id="58" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 85.3%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; "></div>
+                <div id="59" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 91%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; "></div>
+                <div id="60" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 93.7%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; "></div>
+                <div id="61" class="black-key" style="width: 1.3%; height: 60%; background-color: black; z-index: 1; position: absolute; float: left; margin-left: 96.5%; border-color: black; border-bottom-right-radius: 0.2em; border-bottom-left-radius: 0.2em; "></div>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Login form -->
+
+    <div class="input-group mb-3" id="loginform">
+        <table>
+            <tr>
+                <td><a href="#"><i class="fa fa-times cross" aria-hidden="true"></i></a></td>
+            </tr>
+            <form method="POST" action="">
+                <tr>
+                <td>Username(or email):</td>
+                <td>
+                    <input type="Username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                </td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td>
+                    <input type="Password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <button type="submit" class="btn btn-dark">Log In</button>
+                </td>
+                <td><a href="#">Forgot password?</a></td>
+            </tr>
+            </form>
+        </table>
+    </div>
+
+    <!-- Signup form -->
+
+    <div class="input-group mb-3" id="signupform" class="logsign">
+	<table>
+            <tr>
+                <td><a href="#"><i class="fa fa-times cross" aria-hidden="true"></i></a></td>
+            </tr>
+            <form method="POST">
+                <tr>
+                <td>First Name: </td>
+                <td>
+                    <input name="fname" type="Username" class="form-control" placeholder="First Name" aria-label="Username" aria-describedby="basic-addon1">
+                </td>
+            </tr>
+            <tr>
+                <td>Last Name: </td>
+                <td>
+                    <input name="lname" type="Username" class="form-control" placeholder="Last name" aria-label="Username" aria-describedby="basic-addon1">
+                </td>
+            </tr>
+            <tr>
+                <td>Email: </td>
+                <td>
+                    <input name="email" type="email" class="form-control" placeholder="email" aria-label="Username" aria-describedby="basic-addon1">
+                </td>
+            </tr>
+                <tr>
+                <td>Username: </td>
+                <td>
+                    <input name="username" type="Username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                </td>
+            </tr>
+            <tr>
+                <td>Password: </td>
+                <td>
+                    <input name="password" type="Password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                </td>
+            </tr>
+            <tr align="center">
+                <td align="center">
+                    <button name="submit_signup" type="submit" class="btn btn-dark">Sign Up</button>
+                </td>
+            </tr>
+            </form>
+        </table>
+</div>
+
+    <script src="scripts/piano-js.js"></script>
+</body>
+
+</html>
