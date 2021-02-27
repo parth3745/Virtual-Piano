@@ -1,0 +1,250 @@
+.nav_custom {
+	height: 15%;
+	width: 100%;
+	background-color: black;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+html,body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-color: black;
+}
+.nav-heading {
+	padding-left: 2em;
+	color: #ffffff !important;
+	text-align: center;
+	font-family: 'pianoFont';
+	font-size: 3em;
+	text-decoration: none;
+	animation-name: zoomout;
+	animation-duration: 0.3s;
+}
+.nav-heading:hover {
+	animation-name: zoomin;
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+}
+
+.piano {
+	position: absolute;
+	background-color: black;
+	height: 40%;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	top: 50%;
+}
+@keyframes bgchange {
+	from {  background-color: black; color: white;  }
+	to {  background-color: white; color: black;  }
+}
+@keyframes bgchangeback {
+	from {  background-color: white; color: black;  }
+	to {  background-color: black; color: white;  }
+}
+.anim {
+	animation-name: bgchangeback;
+	animation-duration: 0.6s;
+}
+.anim:hover {
+	animation-name: bgchange;
+	animation-duration: 0.6s;
+	animation-fill-mode: forwards;
+}
+@keyframes zoomin {
+	from {  font-size: 3em;  }
+	to {  font-size: 3.2em;  }
+}
+@keyframes zoomout {
+	from {  font-size: 3.2em;  }
+	to {  font-size: 3em;  }
+}
+.white-key {
+	height: 100%;
+	width: 2.77%;
+}
+.label {
+	padding-left: 30%;
+	color: black;
+	font-family: 'Oswald', sans-serif;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+}
+.white-key-div {
+	align-items: center;
+	height: 98%;
+	width: 100%;
+	background-image: linear-gradient(#B7B7B7FF, white);
+	animation-name: zoomkeyout;
+	animation-duration: 0.2s;
+	z-index: 0;
+	position: relative;
+	border-color: black;
+	border-top-right-radius: 0.2em;
+	border-top-left-radius: 0.2em;
+}
+.white-key-div:hover {
+	animation-name: zoomkeyin;
+	animation-duration: 0.2s;
+	animation-fill-mode: forwards;
+}
+@keyframes zoomkeyin {
+	from {  height: 98%; width: 99%;  }
+	to {  height: 100%; width: 100% }
+}
+@keyframes zoomkeyout {
+	from {  height: 100%; width: 100%; }
+	to {  height: 98%; width: 99%; }
+}
+@keyframes blackzoomin {
+	from {  height: 59%; width: 1.2%;  }
+	to {  height: 61%; width: 1.4%;  }
+}
+@keyframes blackzoomout {
+	from {  height: 61%; width: 1.4%;  }
+	to {  height: 60%; width: 1.3%;  }
+}
+.black-key {
+	animation-name: blackzoomout;
+	animation-duration: 0.2s;
+}
+.black-key:hover {
+	animation-name: blackzoomin;
+	animation-duration: 0.2s;
+	animation-fill-mode: forwards;
+}
+.bLabel {
+	color: white;
+	font-family: 'Oswald', sans-serif;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	padding-left: 30%;
+}
+#login {
+	margin-top: 0.5em;
+	color: white;
+	font-size: 1.2em;
+	float: right;
+	font-family: 'Oswald', sans-serif;
+	padding-right: 1em;
+}
+#signup {
+	margin-top: 0.5em;
+	padding-right: 1em;
+	font-size: 1.2em;
+	color: white;
+	float: right;
+	font-family: 'Oswald', sans-serif;
+}
+#loginform {
+	position: relative;
+	z-index: 1;
+	font-family: 'Oswald', sans-serif;
+	color: white;	
+	background-color: black;
+	width: 40%;
+	border: 0.3rem solid black;
+	border-radius: 0.3em;
+	margin-left: 1em;
+	margin-top: 0.4em;
+	text-align: left;
+	padding: 0.5em;
+	margin: auto;
+}
+#loginform input {
+	color: white;
+	background-color: #1a1a1a;
+}
+
+
+#signupform {
+	position: relative;
+	z-index: 1;
+	font-family: 'Oswald', sans-serif;
+	color: white;	
+	background-color: black;
+	width: 40%;
+	border: 0.3rem solid black;
+	border-radius: 0.3em;
+	margin-left: 1em;
+	margin-top: 0.4em;
+	text-align: left;
+	padding: 0.5em;
+	margin: auto;
+}
+#signupform input {
+	color: white;
+	background-color: #1a1a1a;
+}
+	
+
+
+.controlDiv {
+	margin: auto;
+	width: 85%;
+	height: 7%;
+	background-color: #000000;
+	top: 100%;
+	text-align: center;
+	border-top: 2px solid;
+	border-top-color: white;
+}
+
+.option {
+	padding-top: .6%;
+	text-align: justify;
+}
+
+.options td {
+	border-right: 2px solid white;
+}
+.options tr {
+	
+}
+#toggle-trigger {
+	margin-right: 1em;
+}
+#darkmode{
+	margin-left: 1em;
+}
+#recordStart {
+	margin-left: 1em;
+	margin-right: 1em;
+}
+#recordStop {
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+@font-face {
+	font-family: 'pianoFont';
+	src: url(../fonts/piano-font.ttf);
+}
+
+.additionalSounds {
+	width: 85%;
+	margin: auto;
+	height: 6%;
+	background-color: black;
+	border-top: 2px solid;
+	border-top-color: white;	
+}
+.iconify {
+	padding-top: 0.2em;
+}
+.drop {
+	z-index: 1;
+	position: absolute;
+}
+.sound {
+	z-index: 0;
+	position: relative;
+}
